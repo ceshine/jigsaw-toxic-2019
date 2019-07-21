@@ -1,4 +1,4 @@
-# Runtime image
+# Build Image
 FROM ceshine/pytorch-apex-cuda:latest AS build
 
 # Instal basic utilities
@@ -7,17 +7,18 @@ RUN sudo apt-get update && \
     sudo apt-get clean && \
     sudo rm -rf /var/lib/apt/lists/*
 
+COPY ./pytorch_helper_bot /tmp/pytorch_helper_bot
 COPY ./pytorch-pretrained-BERT-master.zip /tmp
-COPY ./helperbot.zip /tmp
 ARG PIP_MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple
 # ARG PIP_MIRROR=https://pypi.python.org/simple
 RUN  pip install -i $PIP_MIRROR --upgrade pip && \
-    pip install -i $PIP_MIRROR python-telegram-bot && \
-    pip install -i $PIP_MIRROR /tmp/helperbot.zip && \
+    pip install -i $PIP_MIRROR /tmp/pytorch_helper_bot/. && \
     pip install -i $PIP_MIRROR /tmp/pytorch-pretrained-BERT-master.zip && \
+    pip install -i $PIP_MIRROR python-telegram-bot && \
     rm -rf ~/.cache/pip
 
-# runtime
+
+# Runtime Image
 from nvidia/cuda:10.0-base
 
 ARG CONDA_DIR=/opt/conda
