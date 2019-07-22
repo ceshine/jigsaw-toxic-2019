@@ -9,8 +9,8 @@ RUN sudo apt-get update && \
 
 COPY ./pytorch_helper_bot /tmp/pytorch_helper_bot
 COPY ./pytorch-pretrained-BERT-master.zip /tmp
-ARG PIP_MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple
-# ARG PIP_MIRROR=https://pypi.python.org/simple
+# ARG PIP_MIRROR=https://pypi.tuna.tsinghua.edu.cn/simple
+ARG PIP_MIRROR=https://pypi.python.org/simple
 RUN  pip install -i $PIP_MIRROR --upgrade pip && \
     pip install -i $PIP_MIRROR /tmp/pytorch_helper_bot/. && \
     pip install -i $PIP_MIRROR /tmp/pytorch-pretrained-BERT-master.zip && \
