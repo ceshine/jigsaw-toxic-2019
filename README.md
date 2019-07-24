@@ -36,4 +36,4 @@ I used a Kaggle Dataset [toxic-cache](https://www.kaggle.com/ceshine/toxic-cache
 
 ## Google Colab Training
 
-TODO: Create a Colab notebook that use the code from this repo. (Previously the notebooks read the zipped code uploaded to my Google Drive account).
+**[Example Colab Notebook](https://colab.research.google.com/drive/1g0enYROgp7K6bOVSy9jmsPUg29ZVhGXs)**: code is cloned directly from this Github repo, but the dataset, caching, and model weights lives on Google Drive (you need to set it up in your account yourself).
