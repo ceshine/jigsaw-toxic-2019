@@ -30,10 +30,12 @@ TODO: Write down the specific versions of major dependencies that are proven to 
 I used almost exactly the same framework used by [ceshine/imet-collection-2019](https://github.com/ceshine/imet-collection-2019/tree/master). Only this time we don't need a separate validation Kernel. The validation scoring function/metric is integrated to the `helperbot` workflow.
 
 * [Training Kernel (script): fine-tuning bert-base-uncased pretrained models](https://www.kaggle.com/ceshine/bert-finetuning-public?scriptVersionId=17512842) - 1 epoch takes around 4.5 hours.
-* [Inference Kernel (script): 5 fine-tuned bert-base-uncased models](https://www.kaggle.com/ceshine/toxic-2019-simple-ensemble-public/output?scriptVersionId=17553663) - Private score *0.94356*; would be in 101th place (silver medal).
+* [Inference Kernel (script): 5 fine-tuned bert-base-uncased models](https://www.kaggle.com/ceshine/toxic-2019-simple-ensemble-public/output?scriptVersionId=17553663) — Private score *0.94356*; would be in 101th place (silver medal).
+* [Inference Kernel (script): 5 fine-tuned bert-base-uncased models + 2 fine-tuned GPT-2 models](https://www.kaggle.com/ceshine/toxic-2019-simple-ensemble-public?scriptVersionId=17588727) — Private score *0.94374*; would be in 70th place (silver medal).
+* [Inference Kernel (script): 5 fine-tuned bert-base-uncased models + 2 fine-tuned GPT-2 models ensembled using "power 3.5 weighted sum"](https://www.kaggle.com/ceshine/toxic-2019-simple-ensemble-public?scriptVersionId=18261117) — Private score *0.94419*; would be in 85th place (silver medal).
 
 I used a Kaggle Dataset [toxic-cache](https://www.kaggle.com/ceshine/toxic-cache) to store tokenized training data, so the kernel won't need to re-tokenized the whole training set in every single run.
 
 ## Google Colab Training
 
-**[Example Colab Notebook](https://colab.research.google.com/drive/1g0enYROgp7K6bOVSy9jmsPUg29ZVhGXs)**: code is cloned directly from this Github repo, but the dataset, caching, and model weights lives on Google Drive (you need to set it up in your account yourself).
+**[Example Colab Notebook](https://colab.research.google.com/drive/1g0enYROgp7K6bOVSy9jmsPUg29ZVhGXs)**: code is cloned directly from this Github repo, but the dataset, caching, and model weights live on Google Drive (you need to set it up in your account yourself).
